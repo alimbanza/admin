@@ -1,0 +1,12 @@
+SELECT (((transferts.montant_envoye*transferts.pourc_preleve)/100)/3)*2 FROM transferts
+SELECT (((retraits.montant_retire*retraits.pourc_preleve)/100)/3)*2 FROM retraits
+SELECT (((depots.montant_depose*depots.pourc_preleve)/100)/3)*2 FROM depots
+
+const [wallet_r_cdf, metadata_] = await sequelize.query("SELECT SUM((((transferts.montant_envoye*transferts.pourc_preleve)/100)/3)*2) n FROM transferts WHERE transferts.devise='USD'"); 
+        const wallet_r_cdf_ = JSON.parse(JSON.stringify(wallet_r_cdf))
+        
+        const [wallet_r_usd, metadata_] = await sequelize.query("SELECT SUM((((transferts.montant_envoye*transferts.pourc_preleve)/100)/3)*2) n FROM transferts WHERE transferts.devise='USD'"); 
+        const wallet_r_usd_ = JSON.parse(JSON.stringify(wallet_r_usd))
+        
+        const [wallet_r_eur, metadata_] = await sequelize.query("SELECT SUM((((transferts.montant_envoye*transferts.pourc_preleve)/100)/3)*2) n FROM transferts WHERE transferts.devise='USD'"); 
+        const wallet_r_eur_ = JSON.parse(JSON.stringify(wallet_r_eur))
