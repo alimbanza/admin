@@ -622,7 +622,7 @@ class Membre extends React.Component {
                 }
                 else{
                     if(response.reponse =='deconnexion'){
-                        window.location.replace("http://localhost:8000/")
+                        window.location.replace("http://localhost:8001/")
                     }else{
                         let err = response.reponse,
                         erreurs=[]
@@ -863,7 +863,7 @@ class Partenaire extends React.Component {
                     });
                 }else{
                     if(response.result =='deconnexion'){
-                        window.location.replace("http://localhost:8000/")
+                        window.location.replace("http://localhost:8001/")
                     }else{
                         let err = response.reponse,
                             erreurs=[]
@@ -930,7 +930,7 @@ class Partenaire extends React.Component {
             });
         }else{
             if(res =='deconnexion'){
-                window.location.replace("http://localhost:8000/")
+                window.location.replace("http://localhost:8001/")
             }else{
                 res.map((item)=>{
                     this.setState({
@@ -1313,7 +1313,7 @@ class Repertoire_personnel extends React.Component {
             response = await this.request("/personnel/on_personnel","POST",data),
             res = response.result
         if(res =='deconnexion'){
-            window.location.replace("http://localhost:8000/")
+            window.location.replace("http://localhost:8001/")
         }else{
             res.map(item => (
                 (item.id_type ==2) ? this.setState({selection1:'selected',selection2:'',selection3:'',selection4:'',selection5:'',selection6:'',id_agence:item.id_agence,type_membre:2}) :
@@ -1326,7 +1326,7 @@ class Repertoire_personnel extends React.Component {
         }
         let response_rep_agence = await request_global("/agence/repertoire","POST",{})
         if(response_rep_agence.result =='deconnexion'){
-            window.location.replace("http://localhost:8000/")
+            window.location.replace("http://localhost:8001/")
         }else this.setState({tableau_agence:response_rep_agence.result}); 
         if(res !='' && response_rep_agence.result !='') $('#exampleModal2').modal('show');
     }
@@ -1338,7 +1338,7 @@ class Repertoire_personnel extends React.Component {
         },
         modif_person = await this.request("/personnel/update_personnel","POST",data)
         if(modif_person.result =='deconnexion'){
-            window.location.replace("http://localhost:8000/")
+            window.location.replace("http://localhost:8001/")
         }
         this.setState({id_member:'',agence:''});
     }
@@ -1476,7 +1476,7 @@ class Repertoire_partenaire extends React.Component {
         res = response_rep_part.reponse
 
         if(response_rep_part.result =='deconnexion'){
-            window.location.replace("http://localhost:8000/")
+            window.location.replace("http://localhost:8001/")
         }else{ 
             res.map(item => (
                 this.setState({
@@ -1625,7 +1625,7 @@ class Nouveau_compte extends React.Component {
             })
         }else{
             if(send_compte.result =='deconnexion'){
-                window.location.replace("http://localhost:8000/")
+                window.location.replace("http://localhost:8001/")
             }else{
                 let err    = send_compte.result,
                     erreurs=[]
@@ -1673,7 +1673,7 @@ class Nouveau_compte extends React.Component {
             });
         }else{
             if(res =='deconnexion'){
-                window.location.replace("http://localhost:8000/")
+                window.location.replace("http://localhost:8001/")
             }else{
                 res.map((item)=>{
                     (item.id_type == 6) ? this.setState({ type_compte:'Courant' }) : this.setState({ type_compte:'Courant' })
@@ -2068,12 +2068,12 @@ class Repertoire_compte_organisation extends React.Component {
                                     <table className="table table-striped" id="example">
                                     {(this.state.compte !='') ?  <tr><td className="col-1"><b>ETABLISSEMENT</b></td><td></td><td></td><td></td></tr> :'' }
                                     {(this.state.compte !='') ?  <tr><td className="col-1">Téléphone</td><td>: {telephone}</td><td className="col-1">Compte</td><td>:<span>&nbsp;{num_compte[0]}<br/></span></td></tr> :'' }
-                                    {(this.state.compte !='') ?  <tr><td className="col-1">Denomination</td><td>: {denomination}</td><td>Autorisation</td><td>: <a href={'http://localhost:8000/'+autorisation} target="blank">Document administratif</a> </td></tr> :'' }
+                                    {(this.state.compte !='') ?  <tr><td className="col-1">Denomination</td><td>: {denomination}</td><td>Autorisation</td><td>: <a href={'http://localhost:8001/'+autorisation} target="blank">Document administratif</a> </td></tr> :'' }
                                     {(this.state.compte !='') ?  <tr><td className="col-1">Email</td><td>: {email}</td><td>Adresse Physique</td><td>: {adresse_physique}</td></tr> :'' }
                                     {(this.state.compte !='') ?  <tr><td className="col-1">RCCM</td><td>: {rccm}</td><td>ID National</td><td>: {id_national}</td></tr> :'' }
 
                                     {(this.state.compte !='') ?  <tr><td className="col-1"><br/><b>GERANT</b></td><td></td><td></td><td></td></tr> :'' }
-                                    {(this.state.compte !='') ?  <tr><td className="col-1"><img style={styleimg} src={'http://localhost:8000/'+photo} className="rounded-circle" /></td><td></td>
+                                    {(this.state.compte !='') ?  <tr><td className="col-1"><img style={styleimg} src={'http://localhost:8001/'+photo} className="rounded-circle" /></td><td></td>
                                             <td colspan="2">
                                                 <div className="row"><div className="col-md-4">Noms </div> <div className="col-md-8"> : {prenom} {nom} {post_nom}</div></div>
                                                 <div className="row"><div className="col-md-4">Sexe </div> <div className="col-md-8"> : {sexe}</div></div>
@@ -2171,7 +2171,7 @@ class Nouvelle_agence extends React.Component {
             });
         }else{
             if(send_agence.result =='deconnexion'){
-                window.location.replace("http://localhost:8000/")
+                window.location.replace("http://localhost:8001/")
             }else{
                 let err = send_agence.result,
                     erreurs=[]
@@ -2263,7 +2263,7 @@ class Nouvelle_approvisionnement extends React.Component {
             });
         }else{
             if(send_monnaie.result =='deconnexion'){
-                window.location.replace("http://localhost:8000/")
+                window.location.replace("http://localhost:8001/")
             }else{
                 let err = send_monnaie.result,
                     erreurs=[]
@@ -2373,7 +2373,7 @@ class Repertoire_agence extends React.Component {
             res        = res_agence.result,
             solde      = await request_global("/agence/solde_agence","POST",data)
 
-        if(res =='deconnexion' || solde.result =='deconnexion')  window.location.replace("http://localhost:8000/")
+        if(res =='deconnexion' || solde.result =='deconnexion')  window.location.replace("http://localhost:8001/")
         
         res.map(item => (
             this.setState({
@@ -2418,7 +2418,7 @@ class Repertoire_agence extends React.Component {
             $('#exampleModal4').modal('hide');
         }else{
             if(res =='deconnexion'){
-                window.location.replace("http://localhost:8000/")
+                window.location.replace("http://localhost:8001/")
             }else{
                 let err = send.result,
                     erreurs=[]
@@ -2531,7 +2531,7 @@ class Config_transaction extends React.Component {
             },
             on_transact = await request_global("/agence/on_transaction","POST",data),
             res = on_transact.result
-        if(res =='deconnexion') window.location.replace("http://localhost:8000/")
+        if(res =='deconnexion') window.location.replace("http://localhost:8001/")
         res.map(item => (
             this.setState({
                 min      :item.minimum,
@@ -2585,7 +2585,7 @@ class Config_transaction extends React.Component {
                 devise:this.state.devise
             },
         rep = await request_global("/agence/rep_transaction","POST",data)
-        if(rep.result =='deconnexion')  window.location.replace("http://localhost:8000/")
+        if(rep.result =='deconnexion')  window.location.replace("http://localhost:8001/")
         this.setState({list_config_transaction: rep.result});
     }
     render() {
@@ -2674,7 +2674,7 @@ class Depot_usd extends React.Component {
             devise :this.state.devise
         },
         send_compte = await request_global("/agence/create_poucentage_depot","POST",dataCompte)
-        if(send_compte.result =='deconnexion') window.location.replace("http://localhost:8000/")
+        if(send_compte.result =='deconnexion') window.location.replace("http://localhost:8001/")
         if(send_compte.result =='r'){
             this.setState({
                 min        :'',
@@ -2789,7 +2789,7 @@ class Configuration_generaux extends React.Component {
             taux_change: document.querySelector('.taux').value
         },
         send = await request_global("/agence/send_pourcentage","POST",dataPourcentage)
-        if(send.result =='deconnexion') window.location.replace("http://localhost:8000/")
+        if(send.result =='deconnexion') window.location.replace("http://localhost:8001/")
         if(send.result =='r'){
             this.setState({
                 state_msg:send.result,
@@ -3025,7 +3025,7 @@ class Wallet_don extends React.Component {
             erreurs   =[],
             response2 = await request_global("/agence/wallet_revenu","POST",dt)
 
-        if(response2.result =='deconnexion') window.location.replace("http://localhost:8000/")
+        if(response2.result =='deconnexion') window.location.replace("http://localhost:8001/")
             
         if(parseFloat(response2.result1) < parseFloat(this.state.montant) && this.state.devise == 'CDF') erreurs.push('Solde CDF insuffisant '+ parseFloat(response2.result1).toFixed(2))
         else{
@@ -3161,7 +3161,7 @@ class Wallet_don_paiement extends React.Component {
         
         let data = { id :'' },
             wallet_don = await request_global("/agence/wallet_don","POST",data)
-            if(wallet_don.result =='deconnexion')  window.location.replace("http://localhost:8000/")
+            if(wallet_don.result =='deconnexion')  window.location.replace("http://localhost:8001/")
             let wr_cdf = parseFloat(wallet_don.result1),
                 wr_usd = parseFloat(wallet_don.result2),
                 wr_eur = parseFloat(wallet_don.result3)
@@ -3295,7 +3295,7 @@ class Wallet_don_paiement extends React.Component {
     })
     .done((response)=>{
         if(response.result =='deconnexion'){
-            window.location.replace("http://localhost:8000/")
+            window.location.replace("http://localhost:8001/")
         }else{
             let wr_cdf = parseFloat(response.result1),
                 wr_usd = parseFloat(response.result2),
@@ -3343,7 +3343,7 @@ let wallet_don_cdf = document.querySelector('.wallet_don_cdf'),
     })
     .done((response)=>{
         if(response.result =='deconnexion'){
-            window.location.replace("http://localhost:8000/")
+            window.location.replace("http://localhost:8001/")
         }else{
             let wr_cdf = parseFloat(response.result1),
                 wr_usd = parseFloat(response.result2),
@@ -3413,7 +3413,7 @@ paiement_wallet_don.addEventListener('click',async (e)=>{
     let response_rep_charge = await request_global("/agence/rep_charge","POST",{}),
         res = response_rep_charge.result
         
-    if(res =='deconnexion') window.location.replace("http://localhost:8000/")
+    if(res =='deconnexion') window.location.replace("http://localhost:8001/")
         
     let root = ReactDOM.createRoot(document.querySelector('.corps'));
     root.render(<Wallet_don_paiement rep_charge={res} />);
@@ -3436,7 +3436,7 @@ pourcentage.addEventListener('click',async (e)=>{
     
     let send_compte = await request_global("/agence/select_poucentage_depot","POST",{}),
         res = send_compte.result
-    if(send_compte.result =='deconnexion')  window.location.replace("http://localhost:8000/")
+    if(send_compte.result =='deconnexion')  window.location.replace("http://localhost:8001/")
     let root = ReactDOM.createRoot(document.querySelector('.corps'));
     root.render(<Configuration_generaux data_pourc={res} />);
 },false)   
@@ -3455,7 +3455,7 @@ depot_usd.addEventListener('click',async (e)=>{
     },
         rep = await request_global("/agence/rep_transaction","POST",data),
         res = rep.result
-        if(res =='deconnexion') window.location.replace("http://localhost:8000/")
+        if(res =='deconnexion') window.location.replace("http://localhost:8001/")
         let listTransfert = res.map(item => (
             <Cellule_corps_tableau min={item.minimum+ ' USD'} max={item.maximum+ ' USD'} frais={item.frais+ ' %'} />
         )), 
@@ -3479,7 +3479,7 @@ rep_agence.addEventListener('click',async (e)=>{
     document.querySelector('.libelle_titre').textContent = 'REPERTOIRE DES AGENCES'
     let response_rep_agence = await request_global("/agence/repertoire","POST",{}),
         res = response_rep_agence.result
-    if(res =='deconnexion') window.location.replace("http://localhost:8000/")
+    if(res =='deconnexion') window.location.replace("http://localhost:8001/")
         
     let root = ReactDOM.createRoot(document.querySelector('.corps'));
     root.render(<Repertoire_agence rep_ag={res} />);
@@ -3502,7 +3502,7 @@ nouvelle_app.addEventListener('click',async(e)=>{
     
     let response_rep_agence = await request_global("/agence/repertoire","POST",{}),
         res = response_rep_agence.result
-    if(res =='deconnexion') window.location.replace("http://localhost:8000/")
+    if(res =='deconnexion') window.location.replace("http://localhost:8001/")
     const root = ReactDOM.createRoot(document.querySelector('.corps')); 
     root.render(<Nouvelle_approvisionnement rep_ag={res} />);
 },false)
@@ -3517,7 +3517,7 @@ rep_compte.addEventListener('click',async (e)=>{
         res_type_piece_identite = await request_global("/agence/rep_type_piece","POST",{}),
         res_type_piece = res_type_piece_identite.result 
         
-    if(res_type_piece =='deconnexion') window.location.replace("http://localhost:8000/")
+    if(res_type_piece =='deconnexion') window.location.replace("http://localhost:8001/")
     root.render(<Repertoire_compte_membre piece={res_type_piece} />);
 },false)
 
@@ -3542,7 +3542,7 @@ new_compte.addEventListener('click',async(e)=>{
    
     let res_type_piece_identite = await request_global("/agence/rep_type_piece","POST",{}),
         res_type_piece = res_type_piece_identite.result   
-    if(res_type_piece =='deconnexion') window.location.replace("http://localhost:8000/")
+    if(res_type_piece =='deconnexion') window.location.replace("http://localhost:8001/")
      contenaire.innerHTML = '<div class="row"><i class="fas fa-spinner fa-pulse" style="color:#ff6600;font-size:100px;margin-top:170px;margin-left:490px;"></i></div>'
     const root = ReactDOM.createRoot(document.querySelector('.corps'));
     root.render(<Nouveau_compte piece={res_type_piece} />);
@@ -3558,7 +3558,7 @@ membre.addEventListener('click',async(e)=>{
     let response_rep_agence = await request_global("/agence/repertoire","POST",{}),
         res = response_rep_agence.result
     
-    if(res =='deconnexion') window.location.replace("http://localhost:8000/")
+    if(res =='deconnexion') window.location.replace("http://localhost:8001/")
 
     let listAgence = res.map(item => (
             <Option value={item.id} option={item.denomination}/>
@@ -3574,7 +3574,7 @@ membre.addEventListener('click',async(e)=>{
         res_etat_civil          = await request_global("/agence/rep_etat_civil","POST",{}),
         res_etat                = res_etat_civil.result
 
-    if(res_membre.result =='deconnexion')  window.location.replace("http://localhost:8000/")
+    if(res_membre.result =='deconnexion')  window.location.replace("http://localhost:8001/")
 
     const root = ReactDOM.createRoot(document.querySelector('.corps'));
     root.render(<Membre etat_civil={res_etat} agence={listAgence} type_piece={res_type_piece} province={res_m} type_membre={res_} type_membre2={res_2} />);
@@ -3588,7 +3588,7 @@ partenaire.addEventListener('click',async(e)=>{
     
     let res_type_piece_identite = await request_global("/agence/rep_type_piece","POST",{}),
     res_type_piece = res_type_piece_identite.result
-    if(res_type_piece =='deconnexion')  window.location.replace("http://localhost:8000/")
+    if(res_type_piece =='deconnexion')  window.location.replace("http://localhost:8001/")
     const root = ReactDOM.createRoot(document.querySelector('.corps'));
     root.render(<Partenaire piece={res_type_piece} />);
 },false)
@@ -3602,7 +3602,7 @@ personnel.addEventListener('click',async (e)=>{
     const root = ReactDOM.createRoot(document.querySelector('.corps')),
           res_type_piece_identite = await request_global("/agence/rep_type_piece","POST",{}),
           res_type_piece = res_type_piece_identite.result
-    if(res_type_piece =='deconnexion')  window.location.replace("http://localhost:8000/")
+    if(res_type_piece =='deconnexion')  window.location.replace("http://localhost:8001/")
     root.render(<Repertoire_personnel piece={res_type_piece} />);
 },false)
 
@@ -3617,7 +3617,7 @@ rep_partenaire.addEventListener('click',async (e)=>{
         },
         response_rep_part = await request_global("/partenaire/find_gerant","POST",dataPertenaire),
         res = response_rep_part.reponse
-    if(response_rep_part.result =='deconnexion') window.location.replace("http://localhost:8000/")
+    if(response_rep_part.result =='deconnexion') window.location.replace("http://localhost:8001/")
     let root = ReactDOM.createRoot(document.querySelector('.corps'));
     root.render(<Repertoire_partenaire tab={res} />);
 },false)
@@ -3630,7 +3630,7 @@ async function check_statut(){
     if(stat.getAttribute('data-statut') == 'c') stat.setAttribute('data-statut','d')
     else{
         await request_global("/deconnexion","POST",{})
-        window.location.replace("http://localhost:8000/")
+        window.location.replace("http://localhost:8001/")
     }
 }
 setInterval(check_statut,300000) // 5 min
