@@ -25,7 +25,7 @@ const MembreModel                   = require('../models/membre.model');
 const EmployeModel                  = require('../models/employe.model');
 const DepotModel                    = require('../models/depot.model');
 
-const sequelize = new Sequelize('loanme','root','',{
+const sequelize = new Sequelize('loanmesfn_db','admin','Admin2704@',{
     host    : 'localhost',
     dialect : 'mysql'
 });
